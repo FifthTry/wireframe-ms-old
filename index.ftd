@@ -1,51 +1,181 @@
 -- import: fifthtry.github.io/wireframe-ms/assets
+-- import: fifthtry.github.io/wireframe-ms
 
 
+-- common.author-meta amitu: Amit Upadhyay
+profile: CEO
+bio-url: blog-authors/amitu/
+image: https://fifthtry.github.io/bling/-/fifthtry.github.io/bling/static/amitu.jpg
+company: FifthTry Pvt. Ltd.
 
--- ds.page: Welcome to your [FASTN site](https://fastn.dev/)
+Founder CEO of FifthTry Private Limited. FifthTry is backed by Y Combinators. 
+A Banglore based start-up having development center at 91Springboard, JP Nagar,
+Banglore.
+
 
 -- ftd.column:
-align-self: center
+width: fill-container
+padding-horizontal.px: 50
+padding-vertical.px: 20
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+background.solid: $inherited.colors.background.base
 
--- chat.message-left: Yo! I am Amit Upadhyay, CEO of FifthTry, welcome to the new world of FTD.
 
--- ds.markdown: 
+-- hero: Title of the hero component
+cta-text-1: Get Started
+cta-link-1: link-to-get-started-page/
+cta-text-2: Shop now
+cta-link-2: link-to-shop-now/
+author: $amitu
+image: $assets.files.static.wireframes.image-icon.svg
 
-You reached the right place, and from here let me assure you, your FTD journey is going superfast. 🙂
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna.
 
--- end: chat.message-left
-
--- chat.message-right:  😊 Liking this chat component?
-
--- ds.markdown:
-
-[Click here to learn more](https://fifthtry.github.io/bling/chat/)
-👍
-
--- end: chat.message-right
 
 -- end: ftd.column
 
--- ds.h1: How to use?
-
-It's very simple like making a sandwich. Create new `.ftd` file and just say:
-
--- ds.code: `-- ds.page` 
-lang: ftd
-
-\-- ds.page: Your page title goes here
-
-Your page content goes here.
 
 
--- ds.h1: Need sidebar at right side of page?
-
-Here it is, [use this document](https://fifthtry.github.io/doc-site/docs/right-sidebar/).
 
 
--- ds.h1: 👀 Learn FTD and become a pro?
 
-You are one click away, just check [our documentation](https://fastn.dev/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
 
--- end: ds.page
+
+
+
+-- component hero:
+caption title:
+optional string cta-text-1:
+optional string cta-link-1:
+optional string cta-text-2:
+optional string cta-link-2:
+optional $common.author-meta author: 
+optional ftd.image-src image: 
+optional body body:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 60
+
+-- ftd.column:
+width.fixed.percent: 50
+align-content: center
+
+-- ftd.image: 
+if: { hero.image != NULL }
+src: $hero.image
+max-width: fill-container
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.percent: 50
+spacing.fixed.px: 40
+
+-- tf.h1: $hero.title
+
+$hero.body
+
+
+-- ftd.column:
+if: { !ftd.is_empty(hero.author) }
+
+-- ftd.row:
+spacing.fixed.px: 18
+align-content: center
+
+-- ftd.image:
+src: $hero.author.image
+width.fixed.px: 64
+height.fixed.px: 64
+border-radius.px: 500
+
+-- ftd.column:
+
+-- ftd.text: $hero.author.title
+role: $inherited.types.copy-small
+color: $inherited.colors.text-strong
+margin-bottom.px: 10
+
+-- ftd.row:
+margin-bottom.px: 8
+
+-- ftd.text: $hero.author.profile
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: ,
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: $hero.author.company
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+padding-left.px: 5
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 10
+align-content: center
+
+-- ftd.image:
+src: $assets.files.static.wireframes.thumbsup.svg
+width.fixed.px: 16
+height.fixed.px: 16
+
+-- ftd.text: 12
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.image:
+src: $assets.files.static.wireframes.thumbsdown.svg
+width.fixed.px: 16
+height.fixed.px: 16
+
+-- ftd.text: 0
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.row:
+spacing.fixed.px: 60
+
+-- ftd.text: $hero.cta-text-1
+role: $inherited.types.button-medium
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.background.step-2
+padding-horizontal.px: 20
+padding-vertical.px: 12
+border-radius.px: 6
+link: $hero.cta-link-1
+
+-- ftd.text: $hero.cta-text-2
+role: $inherited.types.button-medium
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.background.step-2
+padding-horizontal.px: 20
+padding-vertical.px: 12
+border-radius.px: 6
+link: $hero.cta-link-2
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: hero
