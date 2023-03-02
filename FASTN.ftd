@@ -1,10 +1,12 @@
 -- import: fastn
 
--- fastn.package: <user_name>.github.io/<repo_name>
-download-base-url: https://raw.githubusercontent.com/<user_name>/<repo_name>/main
+-- fastn.package: fifthtry.github.io/wireframe-ms
+download-base-url: https://raw.githubusercontent.com/fifthtry/wireframe-ms/main
 
--- fastn.dependency: fifthtry.github.io/doc-site as ds
--- fastn.dependency: fifthtry.github.io/bling as bling
+-- fastn.dependency: fifthtry.github.io/ms-docs
+-- fastn.dependency: fifthtry.github.io/typography
+-- fastn.dependency: fifthtry.github.io/common
 
--- fastn.auto-import: bling/chat as chat
--- fastn.auto-import: ds
+-- fastn.auto-import: fifthtry.github.io/typography as tf
+-- fastn.auto-import: fifthtry.github.io/common
+-- fastn.auto-import: fifthtry.github.io/ms-docs
