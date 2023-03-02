@@ -3,10 +3,8 @@
 -- fastn.package: fifthtry.github.io/wireframe-ms
 download-base-url: https://raw.githubusercontent.com/fifthtry/wireframe-ms/main
 
--- fastn.dependency: fifthtry.github.io/ms-docs
 -- fastn.dependency: fifthtry.github.io/typography
 -- fastn.dependency: fifthtry.github.io/common
 
 -- fastn.auto-import: fifthtry.github.io/typography as tf
 -- fastn.auto-import: fifthtry.github.io/common
--- fastn.auto-import: fifthtry.github.io/ms-docs
