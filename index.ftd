@@ -18,7 +18,7 @@ padding-horizontal.px: 50
 padding-vertical.px: 20
 padding-horizontal.px if { ftd.device == "mobile" }: 20
 background.solid: $inherited.colors.background.base
-
+height: fill-container
 
 -- hero: Title of the hero component
 cta-text-1: Get Started
