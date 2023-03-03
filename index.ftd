@@ -56,6 +56,51 @@ optional body body:
 -- ftd.column:
 width: fill-container
 
+-- hero-desktop:
+if: { ftd.device != "mobile" }
+title: $hero.title
+cta-text-1: $hero.cta-text-1
+cta-link-1: $hero.cta-link-1
+cta-text-2: $hero.cta-text-2
+cta-link-2: $hero.cta-link-2
+author: $hero.author 
+image: $hero.image
+body: $hero.body
+
+-- hero-mobile:
+if: { ftd.device == "mobile" }
+title: $hero.title
+cta-text-1: $hero.cta-text-1
+cta-link-1: $hero.cta-link-1
+cta-text-2: $hero.cta-text-2
+cta-link-2: $hero.cta-link-2
+author: $hero.author 
+image: $hero.image
+body: $hero.body
+
+-- end: ftd.column
+
+-- end: hero
+
+
+
+
+
+
+
+
+
+
+-- component hero-desktop:
+caption title:
+optional string cta-text-1:
+optional string cta-link-1:
+optional string cta-text-2:
+optional string cta-link-2:
+optional $common.author-meta author: 
+optional ftd.image-src image: 
+optional body body:
+
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 60
@@ -65,8 +110,8 @@ width.fixed.percent: 50
 align-content: center
 
 -- ftd.image: 
-if: { hero.image != NULL }
-src: $hero.image
+if: { hero-desktop.image != NULL }
+src: $hero-desktop.image
 max-width: fill-container
 
 -- end: ftd.column
@@ -75,27 +120,26 @@ max-width: fill-container
 width.fixed.percent: 50
 spacing.fixed.px: 40
 
--- tf.h1: $hero.title
+-- tf.h1: $hero-desktop.title
 
-$hero.body
-
+$hero-desktop.body
 
 -- ftd.column:
-if: { !ftd.is_empty(hero.author) }
+if: { !ftd.is_empty(hero-desktop.author) }
 
 -- ftd.row:
 spacing.fixed.px: 18
 align-content: center
 
 -- ftd.image:
-src: $hero.author.image
+src: $hero-desktop.author.image
 width.fixed.px: 64
 height.fixed.px: 64
 border-radius.px: 500
 
 -- ftd.column:
 
--- ftd.text: $hero.author.title
+-- ftd.text: $hero-desktop.author.title
 role: $inherited.types.copy-small
 color: $inherited.colors.text-strong
 margin-bottom.px: 10
@@ -103,7 +147,7 @@ margin-bottom.px: 10
 -- ftd.row:
 margin-bottom.px: 8
 
--- ftd.text: $hero.author.profile
+-- ftd.text: $hero-desktop.author.profile
 role: $inherited.types.fine-print
 color: $inherited.colors.text
 
@@ -111,7 +155,7 @@ color: $inherited.colors.text
 role: $inherited.types.fine-print
 color: $inherited.colors.text
 
--- ftd.text: $hero.author.company
+-- ftd.text: $hero-desktop.author.company
 role: $inherited.types.fine-print
 color: $inherited.colors.text
 padding-left.px: 5
@@ -151,23 +195,133 @@ color: $inherited.colors.text
 -- ftd.row:
 spacing.fixed.px: 60
 
--- ftd.text: $hero.cta-text-1
+-- ftd.text: $hero-desktop.cta-text-1
 role: $inherited.types.button-medium
 color: $inherited.colors.text-strong
 background.solid: $inherited.colors.background.step-2
 padding-horizontal.px: 20
 padding-vertical.px: 12
 border-radius.px: 6
-link: $hero.cta-link-1
+link: $hero-desktop.cta-link-1
 
--- ftd.text: $hero.cta-text-2
+-- ftd.text: $hero-desktop.cta-text-2
 role: $inherited.types.button-medium
 color: $inherited.colors.text-strong
 background.solid: $inherited.colors.background.step-2
 padding-horizontal.px: 20
 padding-vertical.px: 12
 border-radius.px: 6
-link: $hero.cta-link-2
+link: $hero-desktop.cta-link-2
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: hero-desktop
+
+
+
+
+
+
+
+
+
+
+-- component hero-mobile:
+caption title:
+optional string cta-text-1:
+optional string cta-link-1:
+optional string cta-text-2:
+optional string cta-link-2:
+optional $common.author-meta author: 
+optional ftd.image-src image: 
+optional body body:
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 60
+
+-- ftd.column:
+width: fill-container
+align-content: center
+
+-- ftd.image: 
+if: { hero-mobile.image != NULL }
+src: $hero-mobile.image
+max-width: fill-container
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 40
+
+-- tf.h1: $hero-mobile.title
+
+$hero-mobile.body
+
+-- ftd.column:
+if: { !ftd.is_empty(hero-mobile.author) }
+
+-- ftd.row:
+spacing.fixed.px: 18
+align-content: center
+
+-- ftd.image:
+src: $hero-mobile.author.image
+width.fixed.px: 64
+height.fixed.px: 64
+border-radius.px: 500
+
+-- ftd.column:
+
+-- ftd.text: $hero-mobile.author.title
+role: $inherited.types.copy-small
+color: $inherited.colors.text-strong
+margin-bottom.px: 10
+
+-- ftd.row:
+margin-bottom.px: 8
+
+-- ftd.text: $hero-mobile.author.profile
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: ,
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: $hero-mobile.author.company
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+padding-left.px: 5
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 10
+align-content: center
+
+-- ftd.image:
+src: $assets.files.static.wireframes.thumbsup.svg
+width.fixed.px: 16
+height.fixed.px: 16
+
+-- ftd.text: 12
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.image:
+src: $assets.files.static.wireframes.thumbsdown.svg
+width.fixed.px: 16
+height.fixed.px: 16
+
+-- ftd.text: 0
+role: $inherited.types.fine-print
+color: $inherited.colors.text
 
 -- end: ftd.row
 
@@ -177,4 +331,33 @@ link: $hero.cta-link-2
 
 -- end: ftd.column
 
--- end: hero
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 60
+align-content: center
+
+-- ftd.text: $hero-mobile.cta-text-1
+role: $inherited.types.button-medium
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.background.step-2
+padding-horizontal.px: 20
+padding-vertical.px: 12
+border-radius.px: 6
+link: $hero-mobile.cta-link-1
+
+-- ftd.text: $hero-mobile.cta-text-2
+role: $inherited.types.button-medium
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.background.step-2
+padding-horizontal.px: 20
+padding-vertical.px: 12
+border-radius.px: 6
+link: $hero-mobile.cta-link-2
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: hero-mobile
